@@ -1,0 +1,18 @@
+#! /usr/bin/python
+
+import sys
+import os
+import subprocess
+rootDir = sys.argv[1]
+projName = sys.argv[2]
+os.chdir(rootDir)
+os.makedirs(os.path.join(projName, "src", "main", "scala"))
+os.makedirs(os.path.join(projName, "src", "main", "resources"))
+os.makedirs(os.path.join(projName, "src", "test", "scala"))
+os.makedirs(os.path.join(projName, "src", "test", "resources"))
+os.makedirs(os.path.join(projName, "project"))
+os.chdir(projName)
+f = open("build.sbt", 'w')
+f.write("name := \""+projName+"\"\n\n")
+f.write("version := \"1.0\"\n\n")
+f.write("scalaVersion := \"2.9.2\"\n\n")
